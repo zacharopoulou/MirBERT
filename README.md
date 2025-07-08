@@ -18,32 +18,27 @@
 ### 1. Build the Docker image
 
 ```bash
-docker build -t mirbert .
+docker build -t penny0lane/mirbert .
 ```
 
 ### 2. Prepare your data/ directory
 
 On your local machine, create a folder named data/ that contains:
 
-data/
-├── config.yml              # Path configuration
-├── list_of_PMIDs.txt       # Input PMIDs (one per line)
-models/
-   └── stanza/             # BioNLP13CG NER model files
+data:
+-> config.yml              # Path configuration
+-> list_of_PMIDs.txt       # Input PMIDs (one per line)
 
 Example config.yml:
 
 input_file: /data/list_of_PMIDs.txt
 output_file: /data/output.tsv
-stanza_model_dir: /data/models/stanza/
+stanza_model_dir: /models/stanza/
 
-    All paths should start with /data/, which maps to the local data/ folder when mounted inside the container.
+All paths should start with /data/, which maps to the local data/ folder when mounted inside the container.
 
 ### 3. Run the pipeline
 ```bash
-docker run \
-  -v /absolute/path/to/your/data:/data \
-  mirbert \
-  --config /data/config.yml
+docker run -v /absolute/path/to/your/data:/data mirbert --config /data/config.yml
 ```
 The output.tsv file will be saved inside your local data/ directory.
