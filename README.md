@@ -35,6 +35,7 @@ data:
 input_file: /data/list_of_PMIDs.txt
 output_file: /data/output.tsv
 stanza_model_dir: /models/stanza/
+```
 
 All paths should start with /data/, which maps to the local data/ folder when mounted inside the container.
 
