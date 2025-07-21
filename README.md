@@ -29,8 +29,9 @@ data:
 -> config.yml              # Path configuration
 -> list_of_PMIDs.txt       # Input PMIDs (one per line)
 
-Example config.yml:
+#### Example `config.yml`:
 
+```yaml
 input_file: /data/list_of_PMIDs.txt
 output_file: /data/output.tsv
 stanza_model_dir: /models/stanza/
